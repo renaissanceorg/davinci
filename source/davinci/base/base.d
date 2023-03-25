@@ -1,5 +1,7 @@
 module davinci.base.base;
 
+import msgpack;
+
 /** 
  * This is the base message type for all messages
  * in the Renaissance protocol; both client-to-server
@@ -37,7 +39,7 @@ public abstract class BaseMessage
 
 
 /** 
- * 
+ * The type of message
  */
 public enum MessageType
 {
