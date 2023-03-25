@@ -1,0 +1,10 @@
+{
+	"authors": [
+		"Tristan B. V. Kildaire"
+	],
+	"copyright": "Copyright © 2023, Tristan B. V. Kildaire",
+	"description": "Server and client encoding and decoding for the renaissance protocol",
+	"license": "LGPL-3.0",
+	"name": "davinci",
+	"targetType": "library"
+}
