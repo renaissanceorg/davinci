@@ -5,12 +5,34 @@ module davinci.base.base;
  * in the Renaissance protocol; both client-to-server
  * and server-to-server
  */
-public class BaseMessage
+public abstract class BaseMessage
 {
     /** 
      * The type of message
      */
     private MessageType type;
+
+    /** 
+     * Constructs a new base message of the provided
+     * type
+     *
+     * Params:
+     *   type = the type of message
+     */
+    this(MessageType type)
+    {
+        this.type = type;
+    }
+
+    /** 
+     * Get the type of message
+     *
+     * Returns: the type of message
+     */
+    public final MessageType getMessageType()
+    {
+        return type;
+    }
 }
 
 
