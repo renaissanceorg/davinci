@@ -35,8 +35,17 @@ public abstract class BaseMessage
     {
         return type;
     }
-}
 
+    /** 
+     * Encodes this message into the wire format
+     *
+     * Returns: the encoded bytes
+     */
+    public final byte[] encode()
+    {
+        return cast(byte[])pack(this);
+    }
+}
 
 /** 
  * The type of message
