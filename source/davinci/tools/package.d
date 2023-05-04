@@ -5,5 +5,5 @@ public T decodeTo(T)(byte[] data)
 {
     // Currently we are using message pack
     import msgpack;
-    return unpack!(T)(data);
+    return unpack!(T)(cast(ubyte[])data);
 }
