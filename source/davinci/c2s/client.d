@@ -2,7 +2,7 @@ module davinci.c2s.client;
 
 import davinci.base.base : BaseMessage, MessageType;
 
-public class C2SMessage : BaseMessage
+public abstract class C2SMessage : BaseMessage
 {
     this()
     {
