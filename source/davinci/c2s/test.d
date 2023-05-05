@@ -1,7 +1,6 @@
 module davinci.c2s.test;
 
-import davinci.base.base;
-import davinci.c2s.client;
+import davinci.base;
 import msgpack;
 
 public class TestMessage : Command
@@ -15,11 +14,14 @@ public class TestMessage : Command
         super(cast(byte[])pack(this));
     }
 
-   
-
     public string getTestField()
     {
         return testField;
+    }
+
+    public override string toString()
+    {
+        return "TestMessage [testField: "~testField~"]";
     }
 }
 

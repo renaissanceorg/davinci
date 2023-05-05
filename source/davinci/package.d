@@ -1,3 +1,3 @@
 module davinci;
 
-public import davinci.base.base : BaseMessage, MessageType;
+public import davinci.base;
