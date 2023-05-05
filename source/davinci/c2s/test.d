@@ -43,7 +43,7 @@ unittest
     //
     // Here we just go ahead and assume it is a TestMessage
     // ... kind-of message
-    BaseMessage testMessage = unpack!(BaseMessage)(cast(ubyte[])encodedBytes);
+    BaseMessage testMessage = BaseMessage.decode(encodedBytes);
     writeln(testMessage);
     if(testMessage.getCommandType() == CommandType.NOP_COMMAND)
     {

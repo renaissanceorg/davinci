@@ -15,6 +15,11 @@ public class BaseMessage
         registerUnpackHandler!(typeof(this), upkr);
     }
 
+    public static BaseMessage decode(byte[] encodedBytes)
+    {
+        return unpack!(BaseMessage)(cast(ubyte[])encodedBytes);
+    }
+
     /** 
      * Current version of the protocol in use
      */
