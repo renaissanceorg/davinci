@@ -4,14 +4,18 @@ import davinci.base.base;
 import davinci.c2s.client;
 import msgpack;
 
-public class TestMessage : C2SMessage
+public class TestMessage : Command
 {
-    private string testField = "ABBA";
+    private string testField = "ABBAd";
 
     this()
     {
+        import msgpack;
         registerClass!(typeof(this));
+        super(cast(byte[])pack(this));
     }
+
+   
 
     public string getTestField()
     {
@@ -26,7 +30,8 @@ version(unittest)
 
 unittest
 {
-    BaseMessage exampleMessage = new TestMessage();
+    TestMessage exampleCommand = new TestMessage();
+    BaseMessage exampleMessage = new BaseMessage(MessageType.CLIENT_TO_SERVER, CommandType.NOP_COMMAND, exampleCommand);
 
     byte[] encodedBytes = exampleMessage.encode();
     writeln("Encoded bytes: ", encodedBytes);
@@ -38,7 +43,12 @@ unittest
     //
     // Here we just go ahead and assume it is a TestMessage
     // ... kind-of message
-    TestMessage testMessage = unpack!(TestMessage)(cast(ubyte[])encodedBytes);
-    writeln(testMessage.getMessageType());
-    writeln(testMessage.getTestField());
+    BaseMessage testMessage = unpack!(BaseMessage)(cast(ubyte[])encodedBytes);
+    writeln(testMessage);
+    if(testMessage.getCommandType() == CommandType.NOP_COMMAND)
+    {
+        TestMessage testCommand = cast(TestMessage)testMessage.getCommand();
+        writeln(testCommand.getTestField());
+    }
+    
 }
