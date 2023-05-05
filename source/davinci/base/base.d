@@ -162,5 +162,6 @@ public abstract class Command
 
 public enum CommandType
 {
+    SPACER,
     NOP_COMMAND
 }
