@@ -19,7 +19,7 @@ public class NopMessage : Command
         return testField;
     }
 
-    public string setTestField(string testField)
+    public void setTestField(string testField)
     {
         this.testField = testField;
     }
