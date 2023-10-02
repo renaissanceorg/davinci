@@ -19,6 +19,11 @@ public class NopMessage : Command
         return testField;
     }
 
+    public void repack()
+    {
+        setEncoded(cast(byte[])pack(this));
+    }
+
     public void setTestField(string testField)
     {
         this.testField = testField;
