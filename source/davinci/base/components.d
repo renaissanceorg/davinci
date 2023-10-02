@@ -34,10 +34,26 @@ public abstract class Command
         this.data = data;
     }
 
-    
+    /** 
+     * Sets the binary data of this command
+     *
+     * Params:
+     *   data = a `byte[]import std.stdio;
+        writeln("About to do base message pack of child: ", message.getCommand());`
+     */
+    protected final void setEncoded(byte[] data)
+    {
+        this.data = data;
+    }
 
     // public abstract byte[] encode();
 
+    /** 
+     * Returns the bianry data of this
+     * command
+     *
+     * Returns: a `byte[]`
+     */
     public final byte[] getEncoded()
     {
         return data;
