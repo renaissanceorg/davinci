@@ -3,7 +3,7 @@ module davinci.c2s.test;
 import davinci.base;
 import msgpack;
 
-public class TestMessage : Command
+public class NopMessage : Command
 {
     private string testField = "ABBAd";
 
@@ -21,7 +21,7 @@ public class TestMessage : Command
 
     public override string toString()
     {
-        return "TestMessage [testField: "~testField~"]";
+        return "NopMessage [testField: "~testField~"]";
     }
 }
 
@@ -32,7 +32,7 @@ version(unittest)
 
 unittest
 {
-    TestMessage exampleCommand = new TestMessage();
+    NopMessage exampleCommand = new NopMessage();
     BaseMessage exampleMessage = new BaseMessage(MessageType.CLIENT_TO_SERVER, CommandType.NOP_COMMAND, exampleCommand);
 
     byte[] encodedBytes = exampleMessage.encode();
@@ -49,7 +49,7 @@ unittest
     writeln(testMessage);
     if(testMessage.getCommandType() == CommandType.NOP_COMMAND)
     {
-        TestMessage testCommand = cast(TestMessage)testMessage.getCommand();
+        NopMessage testCommand = cast(NopMessage)testMessage.getCommand();
         writeln(testCommand.getTestField());
     }
     

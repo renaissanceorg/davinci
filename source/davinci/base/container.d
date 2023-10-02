@@ -107,8 +107,8 @@ public class BaseMessage
         // TODO: Now COmmndType check
         if(message.commandType == CommandType.NOP_COMMAND)
         {
-            import davinci.c2s.test : TestMessage;
-            message.command = Command.decodeTo!(TestMessage)(payload);
+            import davinci.c2s.test : NopMessage;
+            message.command = Command.decodeTo!(NopMessage)(payload);
         }
         
         
