@@ -19,7 +19,7 @@ public class NopMessage : Command
         return testField;
     }
 
-    public void repack()
+    private void repack()
     {
         setEncoded(cast(byte[])pack(this));
     }
@@ -27,6 +27,9 @@ public class NopMessage : Command
     public void setTestField(string testField)
     {
         this.testField = testField;
+
+        // Ensure re-encoded
+        repack();
     }
 
     public override string toString()
