@@ -19,6 +19,11 @@ public class NopMessage : Command
         return testField;
     }
 
+    public string setTestField(string testField)
+    {
+        this.testField = testField;
+    }
+
     public override string toString()
     {
         return "NopMessage [testField: "~testField~"]";
