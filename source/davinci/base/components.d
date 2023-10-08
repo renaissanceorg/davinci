@@ -59,6 +59,14 @@ public abstract class Command
         return data;
     }
 
+    /** 
+     * Repacks all the fields of this
+     * message
+     */
+    protected final void repack()
+    {
+        setEncoded(cast(byte[])pack(this));
+    }
 
     // TODO: Add a way to enforce that T must be derived from or equal to BaseMessage
     public static T decodeTo(T)(byte[] data)
@@ -72,5 +80,22 @@ public abstract class Command
 public enum CommandType
 {
     SPACER,
-    NOP_COMMAND
+    NOP_COMMAND,
+
+    /**
+     * Authentication command
+     *
+     * Used for clients to
+     * login
+     */
+    AUTH_COMMAND,
+
+    /**
+     * Server linkg request
+     *
+     * Made by a server who
+     * is requesting to link
+     * with this server
+     */
+    LINK_REQUEST
 }

@@ -3,13 +3,12 @@ module davinci.c2s.test;
 import davinci.base;
 import msgpack;
 
-public class NopMessage : Command
+public final class NopMessage : Command
 {
     private string testField = "ABBAd";
 
     this()
     {
-        import msgpack;
         registerClass!(typeof(this));
         super(cast(byte[])pack(this));
     }
@@ -19,10 +18,13 @@ public class NopMessage : Command
         return testField;
     }
 
-    private void repack()
-    {
-        setEncoded(cast(byte[])pack(this));
-    }
+    // TOOD: The pack does a runtime type lookup (PROBABLY) and therefore we could
+    // just rather have it as a final emthod
+
+    // private void repack()
+    // {
+    //     setEncoded(cast(byte[])pack(this));
+    // }
 
     public void setTestField(string testField)
     {
@@ -45,7 +47,12 @@ version(unittest)
 
 unittest
 {
+    // Using this to ensure decode matches encoded
+    string testingField = "ThisIsTestField";
+
     NopMessage exampleCommand = new NopMessage();
+    exampleCommand.setTestField(testingField);
+
     BaseMessage exampleMessage = new BaseMessage(MessageType.CLIENT_TO_SERVER, CommandType.NOP_COMMAND, exampleCommand);
 
     byte[] encodedBytes = exampleMessage.encode();
@@ -64,6 +71,11 @@ unittest
     {
         NopMessage testCommand = cast(NopMessage)testMessage.getCommand();
         writeln(testCommand.getTestField());
+        assert(testCommand.getTestField() == testingField);
+    }
+    else
+    {
+        assert(false);
     }
     
 }
