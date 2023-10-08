@@ -18,14 +18,6 @@ public final class NopMessage : Command
         return testField;
     }
 
-    // TOOD: The pack does a runtime type lookup (PROBABLY) and therefore we could
-    // just rather have it as a final emthod
-
-    // private void repack()
-    // {
-    //     setEncoded(cast(byte[])pack(this));
-    // }
-
     public void setTestField(string testField)
     {
         this.testField = testField;
