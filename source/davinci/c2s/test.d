@@ -10,7 +10,6 @@ public final class NopMessage : Command
     this()
     {
         registerClass!(typeof(this));
-        super(cast(byte[])pack(this));
     }
 
     public string getTestField()

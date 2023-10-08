@@ -29,9 +29,9 @@ public abstract class Command
 {
     private byte[] data;
 
-    this(byte[] data)
+    this()
     {
-        this.data = data;
+        
     }
 
     /** 
@@ -45,8 +45,6 @@ public abstract class Command
     {
         this.data = data;
     }
-
-    // public abstract byte[] encode();
 
     /** 
      * Returns the bianry data of this
