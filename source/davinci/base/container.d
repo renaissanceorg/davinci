@@ -110,6 +110,11 @@ public class BaseMessage
             import davinci.c2s.test : NopMessage;
             message.command = Command.decodeTo!(NopMessage)(payload);
         }
+        else if(message.commandType == CommandType.AUTH_COMMAND)
+        {
+            import davinci.c2s.auth : AuthMessage;
+            message.command = Command.decodeTo!(AuthMessage)(payload);
+        }
         
         
     }
