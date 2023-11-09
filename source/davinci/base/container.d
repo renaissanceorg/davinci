@@ -115,6 +115,11 @@ public class BaseMessage
             import davinci.c2s.auth : AuthMessage;
             message.command = Command.decodeTo!(AuthMessage)(payload);
         }
+        else if(message.commandType == CommandType.AUTH_RESPONSE)
+        {
+            import davinci.c2s.auth : AuthResponse;
+            message.command = Command.decodeTo!(AuthResponse)(payload);
+        }
         
         
     }

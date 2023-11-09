@@ -24,3 +24,28 @@ public final class AuthMessage : Command
         this.password = password;
     }
 }
+
+public final class AuthResponse : Command
+{
+    private bool status;
+
+    this()
+    {
+        registerClass!(typeof(this));
+    }
+
+    public void good()
+    {
+        this.status = true;
+    }
+
+    public void bad()
+    {
+        this.status = false;
+    }
+
+    public bool didAuthSucceed()
+    {
+        return this.status;
+    }
+}

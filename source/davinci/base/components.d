@@ -93,6 +93,15 @@ public enum CommandType
     AUTH_COMMAND,
 
     /**
+     * Authentication response
+     *
+     * Sent from server back
+     * to client in reply to
+     * an authentication command
+     */
+    AUTH_RESPONSE,
+
+    /**
      * Server linkg request
      *
      * Made by a server who
