@@ -20,6 +20,9 @@ public final class NopMessage : Command
     public void setTestField(string testField)
     {
         this.testField = testField;
+
+        // Ensure re-encoded
+        repack();
     }
 
     public override string toString()

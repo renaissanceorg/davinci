@@ -54,10 +54,6 @@ public abstract class Command
      */
     public final byte[] getEncoded()
     {
-        // Force repack of the object
-        repack();
-
-        // Return the data
         return data;
     }
 
