@@ -23,6 +23,16 @@ public final class AuthMessage : Command
     {
         this.password = password;
     }
+
+    public string getUsername()
+    {
+        return this.username;
+    }
+
+    public string getPassword()
+    {
+        return this.password;
+    }
 }
 
 public final class AuthResponse : Command
