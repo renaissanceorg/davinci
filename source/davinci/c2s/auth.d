@@ -14,4 +14,13 @@ public final class AuthMessage : Command
         registerClass!(typeof(this));
     }
 
+    public void setUsername(string username)
+    {
+        this.username = username;
+    }
+
+    public void setPassword(string password)
+    {
+        this.password = password;
+    }
 }
