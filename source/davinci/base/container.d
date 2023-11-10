@@ -120,6 +120,16 @@ public class BaseMessage
             import davinci.c2s.auth : AuthResponse;
             message.command = Command.decodeTo!(AuthResponse)(payload);
         }
+        else if(message.commandType == CommandType.CHANNELS_ENUMERATE_REQ)
+        {
+            import davinci.c2s.channels : ChannelEnumerateRequest;
+            message.command = Command.decodeTo!(ChannelEnumerateRequest)(payload);
+        }
+        else if(message.commandType == CommandType.CHANNELS_ENUMERATE_REP)
+        {
+            import davinci.c2s.channels : ChannelEnumerateReply;
+            message.command = Command.decodeTo!(ChannelEnumerateReply)(payload);
+        }
         
         
     }
