@@ -102,6 +102,22 @@ public enum CommandType
     AUTH_RESPONSE,
 
     /**
+     * Channel listing (req)
+     *
+     * Listing/enumerating channels
+     * available
+     */
+    CHANNELS_ENUMERATE_REQ,
+
+    /**
+     * Channel listing (reply)
+     *
+     * Listing/enumerating channels
+     * available
+     */
+    CHANNELS_ENUMERATE_REP,
+
+    /**
      * Server linkg request
      *
      * Made by a server who
