@@ -49,6 +49,12 @@ public final class ChannelEnumerateReply : Command
         registerClass!(typeof(this));
     }
 
+    this(string[] channels)
+    {
+        this();
+        setChannels(channels);
+    }
+
     public void setChannels(string[] channels)
     {
         this.channels = channels;
