@@ -118,6 +118,26 @@ public enum CommandType
     CHANNELS_ENUMERATE_REP,
 
     /**
+     * Channel message (receive)
+     *
+     * Sent from server to client
+     * representing a new message
+     * that has been sent to the
+     * client.
+     */
+    CHANNEL_NEW_MESSAGE,
+
+    /**
+     * Channel message (send)
+     *
+     * A client sends this to
+     * the server when he wants
+     * to send a message to some
+     * body(ies)
+     */
+    CHANNEL_SEND_MESSAGE,
+
+    /**
      * Server linkg request
      *
      * Made by a server who
