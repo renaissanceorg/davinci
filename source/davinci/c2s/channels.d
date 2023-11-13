@@ -65,3 +65,51 @@ public final class ChannelEnumerateReply : Command
         return this.channels;
     }
 }
+
+// NOTE: Can be used for reception AND request (sending)
+public final class ChannelMessage : Command
+{
+    private string[] to;
+    private string from;
+
+    // TODO: Add mime-type here
+    private string data;
+
+    this()
+    {
+        registerClass!(typeof(this));
+    }
+
+    public void setTo(string[] to)
+    {
+        foreach(string curTo; to)
+        {
+            this.to ~= curTo;
+        }
+    }
+
+    public void setTo(string to)
+    {
+        this.to ~= to;
+    }
+
+    public string getSingularTo()
+    {
+        return this.to[0];
+    }
+
+    public string[] getRecipients()
+    {
+        return this.to;
+    }
+
+    public string getFrom()
+    {
+        return this.from;
+    }
+
+    public string getMessage()
+    {
+        return data;
+    }
+}
