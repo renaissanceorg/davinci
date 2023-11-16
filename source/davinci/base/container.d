@@ -140,6 +140,15 @@ public class BaseMessage
             import davinci.c2s.channels : ChannelMessage;
             message.command = Command.decodeTo!(ChannelMessage)(payload);
         }
+        else if(
+                message.commandType == CommandType.MEMBERSHIP_JOIN ||
+                message.commandType == CommandType.MEMBERSHIP_LEAVE ||
+                message.commandType == CommandType.MEMBERSHIP_LIST
+                )
+        {
+            import davinci.c2s.channels : ChannelMembership;
+            message.command = Command.decodeTo!(ChannelMembership)(payload);
+        }
         
         
     }
