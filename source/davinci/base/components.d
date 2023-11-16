@@ -138,6 +138,30 @@ public enum CommandType
     CHANNEL_SEND_MESSAGE,
 
     /**
+     * Membership (join)
+     *
+     * Request to join a given
+     * channel
+     */
+    MEMBERSHIP_JOIN,
+
+    /**
+     * Membership (list)
+     *
+     * List all the members
+     * of a given channel
+     */
+    MEMBERSHIP_LIST,
+
+    /**
+     * Membership (leave)
+     *
+     * Request to leave a
+     * given channel
+     */
+    MEMBERSHIP_LEAVE,
+
+    /**
      * Server linkg request
      *
      * Made by a server who
