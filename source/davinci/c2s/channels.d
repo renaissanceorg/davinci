@@ -113,3 +113,40 @@ public final class ChannelMessage : Command
         return data;
     }
 }
+
+
+public enum MembershipMode
+{
+    JOIN,
+    LEAVE,
+    LIST
+}
+
+public class ChannelMembership : Command
+{
+    private MembershipMode memMode;
+    private string channel;
+    private string[] members;
+
+    this()
+    {
+        registerClass!(typeof(this));
+    }
+
+    public ChannelMembership join(string channelName)
+    {
+        this.channel = channelName;
+        return join();
+    }
+
+    public ChannelMembership join()
+    {
+        return mode(MembershipMode.JOIN);
+    }
+
+    public ChannelMembership mode(MembershipMode mode)
+    {
+        this.memMode = mode;
+        return this;
+    }
+}
