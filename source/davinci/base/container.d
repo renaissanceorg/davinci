@@ -149,6 +149,11 @@ public class BaseMessage
             import davinci.c2s.channels : ChannelMembership;
             message.command = Command.decodeTo!(ChannelMembership)(payload);
         }
+        else if(message.commandType == CommandType.UNKNOWN_COMMAND)
+        {
+            import davinci.c2s.generic : UnknownCommandReply;
+            message.command = Command.decodeTo!(UnknownCommandReply)(payload);
+        }
         
         
     }
