@@ -140,6 +140,11 @@ public class ChannelMembership : Command
         registerClass!(typeof(this));
     }
 
+    public string getChannel()
+    {
+        return this.channel;
+    }
+
     public ChannelMembership join(string channelName)
     {
         this.channel = channelName;
