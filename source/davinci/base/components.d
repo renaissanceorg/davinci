@@ -38,8 +38,8 @@ public abstract class Command
      * Sets the binary data of this command
      *
      * Params:
-     *   data = a `byte[]import std.stdio;
-        writeln("About to do base message pack of child: ", message.getCommand());`
+     *   data = a `byte[]` to set as the
+     * data of this command
      */
     protected final void setEncoded(byte[] data)
     {
