@@ -122,11 +122,18 @@ public enum MembershipMode
     LIST
 }
 
+public enum MemershipResult
+{
+    GOOD,
+    BAD
+}
+
 public class ChannelMembership : Command
 {
     private MembershipMode memMode;
     private string channel;
     private string[] members;
+    private MemershipResult status;
 
     this()
     {
@@ -147,6 +154,33 @@ public class ChannelMembership : Command
     public ChannelMembership mode(MembershipMode mode)
     {
         this.memMode = mode;
+        return this;
+    }
+
+    public ChannelMembership listReplyGood(string[] channels)
+    {
+        // Set the status to good
+        replyGood();
+
+        // Set the channels
+        this.members = channels;
+
+        return this;
+    }
+
+    public ChannelMembership replyGood()
+    {
+        return replyStatus(MemershipResult.GOOD);
+    }
+
+    public ChannelMembership replyBad()
+    {
+        return replyStatus(MemershipResult.BAD);
+    }
+
+    private ChannelMembership replyStatus(MemershipResult result)
+    {
+        this.status = result;
         return this;
     }
 }
