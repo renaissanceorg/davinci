@@ -1,14 +1,16 @@
 module davinci.c2s.generic;
 
 import davinci.base : Command;
+import msgpack;
 
-public final class UnknownCommandReply
+public final class UnknownCommandReply : Command
 {
     private string offendingCommand;
 
     this()
     {
-
+        // TODO: This should be a mixin
+        registerClass!(typeof(this));
     }
 
     this(string offending)
