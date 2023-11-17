@@ -16,6 +16,7 @@ public final class UnknownCommandReply : Command
     this(string offending)
     {
         setOffending(offending);
+        this();
     }
 
     public UnknownCommandReply setOffending(string offending)
