@@ -163,6 +163,18 @@ public enum CommandType
     MEMBERSHIP_LIST,
 
     /**
+     * Membership (list)
+     * reply
+     *
+     * List all the members
+     * of a given channel
+     *
+     * (Server reply with
+     * results)
+     */
+    MEMBERSHIP_LIST_REP,
+
+    /**
      * Membership (leave)
      *
      * Request to leave a
