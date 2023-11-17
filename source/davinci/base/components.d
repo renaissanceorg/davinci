@@ -85,6 +85,15 @@ public enum CommandType
     NOP_COMMAND,
 
     /**
+     * Unknown command
+     * 
+     * Sent as a reply when
+     * an unknown command
+     * is received
+     */
+    UNKNOWN_COMMAND,
+
+    /**
      * Authentication command
      *
      * Used for clients to
