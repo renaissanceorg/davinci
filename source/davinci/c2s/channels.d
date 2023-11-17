@@ -178,6 +178,11 @@ public class ChannelMembership : Command
         return replyStatus(MemershipResult.BAD);
     }
 
+    public bool wasGood()
+    {
+        return this.status == MemershipResult.GOOD;
+    }
+
     private ChannelMembership replyStatus(MemershipResult result)
     {
         this.status = result;
