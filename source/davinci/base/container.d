@@ -142,8 +142,10 @@ public class BaseMessage
         }
         else if(
                 message.commandType == CommandType.MEMBERSHIP_JOIN ||
+                message.commandType == CommandType.MEMBERSHIP_JOIN_REP ||
                 message.commandType == CommandType.MEMBERSHIP_LEAVE ||
-                message.commandType == CommandType.MEMBERSHIP_LIST
+                message.commandType == CommandType.MEMBERSHIP_LIST ||
+                message.commandType == CommandType.MEMBERSHIP_LIST_REP
                 )
         {
             import davinci.c2s.channels : ChannelMembership;
