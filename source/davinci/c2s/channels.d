@@ -162,6 +162,11 @@ public class ChannelMembership : Command
         return this;
     }
 
+    public string[] getMembers()
+    {
+        return this.members;
+    }
+
     public ChannelMembership listReplyGood(string[] channels)
     {
         // Set the status to good
