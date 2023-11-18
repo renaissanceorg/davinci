@@ -156,6 +156,17 @@ public class ChannelMembership : Command
         return mode(MembershipMode.JOIN);
     }
 
+    public ChannelMembership leave(string channelName)
+    {
+        this.channel = channelName;
+        return leave();
+    }
+
+    public ChannelMembership leave()
+    {
+        return mode(MembershipMode.LEAVE);
+    } 
+
     public ChannelMembership list(string channelName)
     {
         this.channel = channelName;
