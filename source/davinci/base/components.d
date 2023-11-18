@@ -194,6 +194,17 @@ public enum CommandType
     MEMBERSHIP_LEAVE,
 
     /**
+     * Membership (leave)
+     *
+     * Request to leave a
+     * given channel
+     *
+     * (Server reply with
+     * results)
+     */
+    MEMBERSHIP_LEAVE_REP,
+
+    /**
      * Server linkg request
      *
      * Made by a server who
