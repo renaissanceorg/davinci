@@ -158,7 +158,7 @@ public class ChannelMembership : Command
 
     public ChannelMembership list(string channelName)
     {
-        this.channel = channel;
+        this.channel = channelName;
         return mode(MembershipMode.LIST);
     }
 
