@@ -155,6 +155,17 @@ public enum CommandType
     MEMBERSHIP_JOIN,
 
     /**
+     * Membership (join)
+     *
+     * Request to join a given
+     * channel
+     *
+     * (Server reply with
+     * results)
+     */
+    MEMBERSHIP_JOIN_REP,
+
+    /**
      * Membership (list)
      *
      * List all the members
