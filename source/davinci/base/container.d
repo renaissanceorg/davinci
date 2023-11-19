@@ -87,7 +87,7 @@ public class BaseMessage
         return respStatus;
     }
 
-    public void setStatus(State status)
+    public void setStatus(Status status)
     {
         this.respStatus = status;
     }
