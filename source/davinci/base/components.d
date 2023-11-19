@@ -24,6 +24,14 @@ public enum MessageType
     SERVER_TO_SERVER
 }
 
+// TODO: Response status
+public enum Status
+{
+    GOOD,
+    BAD_ARGS,
+    NOT_AUTHD,
+    NOT_USER
+}
 
 public abstract class Command
 {
