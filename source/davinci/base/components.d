@@ -24,7 +24,9 @@ public enum MessageType
     SERVER_TO_SERVER
 }
 
-// TODO: Response status
+/** 
+ * Response status
+ */
 public enum Status
 {
     GOOD,
