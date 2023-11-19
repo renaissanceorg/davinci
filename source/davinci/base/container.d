@@ -32,9 +32,21 @@ public class BaseMessage
      */
     private MessageType type;
     
+    /** 
+     * The type of command
+     */
     private CommandType commandType;
 
+    /** 
+     * The command itself
+     */
     private Command command;
+
+
+    /**
+     * TODO: Add a reply status here
+     */
+    private Status respStatus;
 
     /** 
      * Constructs a new base message of the provided
@@ -70,6 +82,16 @@ public class BaseMessage
         return command;
     }
 
+    public Status getStatus()
+    {
+        return respStatus;
+    }
+
+    public void setStatus(State status)
+    {
+        this.respStatus = status;
+    }
+
     /** 
      * Encodes this message into the wire format
      *
@@ -89,6 +111,7 @@ public class BaseMessage
         packer.pack(message.protocolVersion);
         packer.pack(message.type);
         packer.pack(message.commandType);
+        packer.pack(message.respStatus);
         
         /* Payload bytes */
         byte[] payload = message.getCommand().getEncoded();
@@ -100,6 +123,7 @@ public class BaseMessage
         unpacker.unpack!(ProtocolVersion)(message.protocolVersion);
         unpacker.unpack!(MessageType)(message.type);
         unpacker.unpack!(CommandType)(message.commandType);
+        unpacker.unpack!(Status)(message.respStatus);
 
         byte[] payload;
         unpacker.unpack!(byte[])(payload);
