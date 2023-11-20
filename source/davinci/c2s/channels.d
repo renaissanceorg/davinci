@@ -84,7 +84,7 @@ public final class ChannelMessage : Command
     {
         foreach(string curTo; to)
         {
-            this.to ~= curTo;
+            setTo(curTo);
         }
     }
 
