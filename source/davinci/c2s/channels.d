@@ -80,6 +80,11 @@ public final class ChannelMessage : Command
         registerClass!(typeof(this));
     }
 
+    public void setMessage(string data)
+    {
+        this.data = data;
+    }
+
     public void setTo(string[] to)
     {
         foreach(string curTo; to)
