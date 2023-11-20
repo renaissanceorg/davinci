@@ -35,6 +35,30 @@ public enum Status
     NOT_USER
 }
 
+/** 
+ * Support for message validation
+ * to ensure that it is valid given
+ * some of its parameters
+ */
+public interface Validatable
+{    
+    /** 
+     * Validates the item returning whether
+     * this process failed or not
+     *
+     * In the case of a failure the ref-based
+     * argument is updated with the reason
+     * of failure
+     *
+     * Params:
+     *   reason = the reason of failure (if
+     * any)
+     * Returns: `true` if the validation
+     * passes, `false` otherwise
+     */
+    public bool validate(ref string reason);
+}
+
 public abstract class Command
 {
     private byte[] data;
@@ -93,6 +117,13 @@ public enum CommandType
 {
     SPACER,
     NOP_COMMAND,
+
+    /**
+     * Error
+     *
+     * 
+     */
+    ERROR,
 
     /**
      * Unknown command
