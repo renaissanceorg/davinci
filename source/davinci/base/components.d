@@ -189,6 +189,14 @@ public enum CommandType
     CHANNEL_SEND_MESSAGE,
 
     /**
+     * Channel message (reply)
+     *
+     * Status on if message was
+     * sent or not
+     */
+    SEND_CHANNEL_MESG_REP,
+
+    /**
      * Membership (join)
      *
      * Request to join a given
