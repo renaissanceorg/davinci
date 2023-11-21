@@ -75,6 +75,8 @@ public final class ChannelMessage : Command
     // TODO: Add mime-type here
     private string data;
 
+    private Status status;
+
     this()
     {
         registerClass!(typeof(this));
@@ -116,6 +118,27 @@ public final class ChannelMessage : Command
     public string getMessage()
     {
         return data;
+    }
+
+    public ChannelMessage messageDelivered()
+    {
+        return setStatus(Status.GOOD);
+    }
+
+    public ChannelMessage setStatus(Status status)
+    {
+        this.status = status;
+        return this;
+    }
+
+    public Status getStatus()
+    {
+        return this.status;
+    }
+
+    public bool wasDelivered()
+    {
+        return getStatus() == Status.GOOD;
     }
 }
 
