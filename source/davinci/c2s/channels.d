@@ -66,8 +66,10 @@ public final class ChannelEnumerateReply : Command
     }
 }
 
+import davinci.base.components : Validatable;
+
 // NOTE: Can be used for reception AND request (sending)
-public final class ChannelMessage : Command
+public final class ChannelMessage : Command, Validatable
 {
     private string[] to;
     private string from;
@@ -85,6 +87,11 @@ public final class ChannelMessage : Command
     public void setMessage(string data)
     {
         this.data = data;
+    }
+
+    public void setFrom(string from)
+    {
+        this.from = from;
     }
 
     public void setTo(string[] to)
@@ -140,8 +147,46 @@ public final class ChannelMessage : Command
     {
         return getStatus() == Status.GOOD;
     }
+
+    public bool validate(ref string reason)
+    {
+        // If this is a request
+        if(this.status == Status.UNSET)
+        {
+            if(to.length > 0 && from.length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                reason = "Recipients list is empty or the from field is empty";
+                return false;
+            }
+        }
+
+        // TODO: Implement the rest
+        return false;
+    }
 }
 
+
+unittest
+{
+    string reason;
+
+    // Valid case of a CHANNEL_SEND_MESSAGE
+    ChannelMessage chanMesg = new ChannelMessage();
+    chanMesg.setTo(["deavmi", "gustav"]);
+    chanMesg.setFrom("testUser");
+    assert(chanMesg.validate(reason));
+
+    // In-valid case of a CHANNEL_SEND_MESSAGE
+    chanMesg = new ChannelMessage();
+    chanMesg.setTo(cast(string[])[]);
+    chanMesg.setFrom("testUser");
+    assert(!chanMesg.validate(reason));
+    assert(reason.length > 0);
+}
 
 public enum MembershipMode
 {
