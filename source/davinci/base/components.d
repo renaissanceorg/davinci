@@ -29,6 +29,7 @@ public enum MessageType
  */
 public enum Status
 {
+    UNSET,
     GOOD,
     BAD_ARGS,
     NOT_AUTHD,
